@@ -6,7 +6,9 @@ class ArticlesController < ApplicationController
     if @article.save 
       redirect_to "/"
     else
-      redirect_to "blog/new"
+      render "blogs/new"
+      #借 app/views/blogs/new
+      # redirect_to "/blogs/new"
     end
   end
 
