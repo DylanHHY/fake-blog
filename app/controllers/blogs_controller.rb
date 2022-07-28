@@ -1,4 +1,4 @@
-class BlogController < ApplicationController
+class BlogsController < ApplicationController
   def index
   end
 
@@ -8,7 +8,7 @@ class BlogController < ApplicationController
   def create
     # 寫入資料庫
     # render html: "已成功新增"
-    redirect_to "/blog"
+    redirect_to "/blogs"
   end
 
 end
