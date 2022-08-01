@@ -1,9 +1,14 @@
 class BlogsController < ApplicationController
   def index
+    @articles = Article.all
   end
 
   def new
     @article = Article.new
+  end
+
+  def show
+    @article = Article.find_by(id: params[:id])
   end
 
   def create
