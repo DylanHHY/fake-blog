@@ -7,9 +7,6 @@ class BlogsController < ApplicationController
     @article = Article.new
   end
 
-  def show
-    @article = Article.find_by(id: params[:id])
-  end
 
   def create
     # 寫入資料庫
