@@ -7,8 +7,7 @@
   <li>
     <%= link_to article.title, article%>
     <%= link_to "update", edit_article_path(article)%>
-    <%= link_to "delete1", article, method:"delete", data:{confirm: "Are you sure?", a:111, b:222}%>
-    <%= link_to "delete2", data:{confirm: "Are you sure?", method:"delete"}%>
+    <%= link_to "delete", article, method:"delete", data:{confirm: "Are you sure?"}%>
   </li>
 
   <% end %>
