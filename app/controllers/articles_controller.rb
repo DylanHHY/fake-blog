@@ -1,14 +1,9 @@
 class ArticlesController < ApplicationController
   before_action :require_login, except: [:show]
-  before_action :find_article, only: [:show, :edit, :update, :destroy]
+  before_action :find_article, only: [:edit, :update, :destroy]
 
   def create
-
-    # @article = Article.new(article_params)
-    # @article.user = current_user
     @article = current_user.articles.new(article_params)
-
-
 
     if @article.save 
       flash[:notice] = "文章新增成功"
@@ -21,6 +16,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @article = Article.find_by(id: params[:id])
   end
 
   def edit
@@ -36,8 +32,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article.destroy
+    # @article.destroy
     # flash[:notice] = "文章刪除成功"  #太常用了
+    @article.update(deleted_at: Time.current)
     redirect_to blogs_path, notice: "文章刪除成功"  # arlert也可以
   end
 
@@ -47,6 +44,6 @@ class ArticlesController < ApplicationController
   end
 
   def find_article
-    @article = Article.find_by(id: params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 end

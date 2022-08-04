@@ -18,6 +18,8 @@ class User < ApplicationRecord
     find_by(email: email, password: hashed_password)
   end
 
+  
+
   private
   def encrupt_password
     pw = "xx----#{self.password}-y--y"

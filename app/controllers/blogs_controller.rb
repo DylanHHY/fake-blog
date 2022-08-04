@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :require_login, only: [:new]
 
   def index
-    @articles = Article.all
+    @articles = Article.where(deleted_at: nil).order(id: :desc)
     
   end
 
