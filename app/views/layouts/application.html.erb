@@ -12,14 +12,15 @@
 
   <body>
     <nav class="navigation">
-      <%= link_to "Sign up", sign_up_users_path%>
-      <%= link_to "Sign in", sign_in_users_path%>
-      <%= link_to "Sign out", sign_in_users_path,method: "delete"%>
-      <% if user_signed_in? %>
-        <li>
-          <%= current_user.email%>
-        </li>
-      <%end%>
+
+      <li><%= link_to "Sign up", sign_up_users_path%></li>
+      <li><%= link_to "Sign in", sign_in_users_path%></li>
+      <li><%= link_to "Sign out", sign_in_users_path,method: "delete"%></li>
+      <li>
+        <% if user_signed_in? %>
+            <%= current_user.email%>
+        <%end%>
+      </li>
     </nav>
     <%= render "shared/flash" if notice%>
     <%= yield %>
