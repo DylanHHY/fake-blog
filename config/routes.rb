@@ -16,4 +16,10 @@ Rails.application.routes.draw do
   resources :blogs
   #admin
   resources :articles
+  resource :sessions, only: [:create, :destroy]
+
+  resource :users, except:[:destroy, :new] do 
+    get :sign_up
+    get :sign_in
+  end
 end

@@ -1,10 +1,17 @@
 class BlogsController < ApplicationController
+  include UsersHelper
+
   def index
     @articles = Article.all
+    
   end
 
   def new
-    @article = Article.new
+    if  user_signed_in?
+      @article = Article.new
+    else
+      redirect_to sign_in_users_path
+    end
   end
 
 

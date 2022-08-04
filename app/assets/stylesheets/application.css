@@ -17,4 +17,13 @@
  .field_with_errors{
   display: inline;
  }
+ .flash{
+  background-color: pink;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+ }
 

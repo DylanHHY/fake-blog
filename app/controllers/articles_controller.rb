@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save 
+      flash[:notice] = "文章新增成功"
       redirect_to "/"
     else
       render "blogs/new"
@@ -22,6 +23,7 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
+      flash[:notice] = "文章編輯成功"
       redirect_to blogs_path
     else
       render :edit
@@ -30,7 +32,8 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article.destroy
-    redirect_to blogs_path
+    # flash[:notice] = "文章刪除成功"  #太常用了
+    redirect_to blogs_path, notice: "文章刪除成功"  # arlert也可以
   end
 
   private
