@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :require_login, except: [:show]
   before_action :find_article, only: [:show, :edit, :update, :destroy]
 
   def create

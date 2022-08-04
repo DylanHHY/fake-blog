@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   include UsersHelper
+  before_action :require_login, only: [:new]
 
   def index
     @articles = Article.all

@@ -11,17 +11,7 @@
   </head>
 
   <body>
-    <nav class="navigation">
-
-      <li><%= link_to "Sign up", sign_up_users_path%></li>
-      <li><%= link_to "Sign in", sign_in_users_path%></li>
-      <li><%= link_to "Sign out", sign_in_users_path,method: "delete"%></li>
-      <li>
-        <% if user_signed_in? %>
-            <%= current_user.email%>
-        <%end%>
-      </li>
-    </nav>
+    <%= render "shared/navbar"%>
     <%= render "shared/flash" if notice%>
     <%= yield %>
   </body>
