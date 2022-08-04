@@ -1,3 +1,7 @@
 class Article < ApplicationRecord
-  validates :title, presence: true
+  # relationships
+  belongs_to :user
+
+  # validates
+  validates :title, presence: true, length: {minimum: 2}
 end

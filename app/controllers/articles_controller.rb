@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
 
   def create
 
-    @article = Article.new(article_params)
+    # @article = Article.new(article_params)
+    # @article.user = current_user
+    @article = current_user.articles.new(article_params)
+
+
 
     if @article.save 
       flash[:notice] = "文章新增成功"

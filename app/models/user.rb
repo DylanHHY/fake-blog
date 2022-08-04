@@ -1,9 +1,12 @@
 class User < ApplicationRecord
+  # relationship
+  has_many :articles
+
+  #validates
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: {minimum: 6}, confirmation: true
 
   #callback
-  # before_save :encrupt_password 
   before_create :encrupt_password
 
   def self.login(user_params)
